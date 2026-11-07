@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.coverage*
+
+# Go build and test outputs
+/src/backend/backend.exe
+/src/backend/*.test
+/src/backend/coverage.out

@@ -1,0 +1,24 @@
+server:
+  host: "127.0.0.1"
+  port: 8001
+
+llama_server:
+  executable: llama-server_path
+  port: 8080
+  startup_timeout: 120
+  shutdown_timeout: 10
+  extra_args:
+    - "--flash-attn"
+    - "on"
+    - "-n"
+    - "1024"
+    - "--jinja"
+
+models:
+  default: model_name
+  available:
+    model_name:
+      name: model_name
+      path: your_model_path
+      context_size: 8192
+      gpu_layers: "all"

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local LLM Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">LOCAL INFERENCE</p>
+          <h1>Local LLM Chat</h1>
+        </div>
+        <section class="model-status" aria-label="モデルの状態">
+          <div>
+            <span class="status-label">モデル</span>
+            <strong id="model-name">確認中...</strong>
+          </div>
+          <div>
+            <span class="status-label">状態</span>
+            <strong id="model-state">確認中...</strong>
+          </div>
+        </section>
+      </header>
+
+      <section class="panel prompt-panel" aria-labelledby="prompt-heading">
+        <div class="section-heading">
+          <div>
+            <h2 id="prompt-heading">System Prompt</h2>
+            <p>アシスタントの応答方針を設定します。</p>
+          </div>
+          <button id="save-prompt" class="button button-secondary" type="button" disabled>
+            保存
+          </button>
+        </div>
+        <label class="visually-hidden" for="system-prompt">System Prompt</label>
+        <textarea id="system-prompt" rows="3" disabled>あなたは親しみやすいAIアシスタントです。</textarea>
+        <p id="prompt-status" class="field-status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel conversation-panel" aria-labelledby="conversation-heading">
+        <div class="section-heading">
+          <div>
+            <h2 id="conversation-heading">会話</h2>
+            <p>会話履歴はこのセッション中保持されます。</p>
+          </div>
+          <button id="reset-chat" class="button button-quiet" type="button" disabled>
+            履歴をリセット
+          </button>
+        </div>
+        <ol id="chat-history" class="chat-history" role="log" aria-live="polite" aria-relevant="additions">
+          <li id="empty-history" class="empty-history">まだメッセージはありません。</li>
+        </ol>
+      </section>
+
+      <form id="chat-form" class="composer">
+        <label class="visually-hidden" for="message-input">メッセージ</label>
+        <textarea
+          id="message-input"
+          rows="2"
+          placeholder="メッセージを入力..."
+          disabled
+        ></textarea>
+        <button id="send-message" class="button button-primary" type="submit" disabled>
+          送信
+        </button>
+      </form>
+      <p id="app-status" class="app-status" role="status" aria-live="polite">
+        セッションを準備しています...
+      </p>
+    </main>
+  </body>
+</html>

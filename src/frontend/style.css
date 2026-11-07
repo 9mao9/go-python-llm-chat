@@ -1,0 +1,285 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+  color: #202a36;
+  background: #f3f5f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.app {
+  width: min(100%, 820px);
+  margin: 0 auto;
+}
+
+.app-header,
+.section-heading,
+.model-status,
+.composer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.app-header {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #596e8c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.6rem, 5vw, 2rem);
+}
+
+h2 {
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+.section-heading p {
+  margin-bottom: 0;
+  color: #718096;
+  font-size: 0.88rem;
+}
+
+.model-status {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  color: #42526a;
+  font-size: 0.88rem;
+}
+
+.model-status div {
+  display: grid;
+  gap: 4px;
+}
+
+.status-label {
+  color: #718096;
+  font-size: 0.75rem;
+}
+
+.panel {
+  margin-bottom: 18px;
+  padding: 22px;
+  border: 1px solid #e1e6ed;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgb(34 51 84 / 4%);
+}
+
+.prompt-panel textarea,
+.composer textarea {
+  display: block;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #d5dce6;
+  border-radius: 9px;
+  padding: 12px 14px;
+  color: #202a36;
+  background: #fff;
+  line-height: 1.55;
+}
+
+textarea:focus {
+  border-color: #5379b8;
+  outline: 3px solid rgb(83 121 184 / 16%);
+}
+
+textarea:disabled {
+  color: #657185;
+  background: #f8f9fb;
+}
+
+.button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 120ms ease, opacity 120ms ease;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.button-primary {
+  min-width: 92px;
+  color: #fff;
+  background: #315d9b;
+}
+
+.button-primary:not(:disabled):hover {
+  background: #254a7e;
+}
+
+.button-secondary {
+  color: #315d9b;
+  background: #eaf0f8;
+}
+
+.button-secondary:not(:disabled):hover {
+  background: #dce7f5;
+}
+
+.button-quiet {
+  color: #526174;
+  background: #f0f2f5;
+}
+
+.button-quiet:not(:disabled):hover {
+  background: #e4e8ee;
+}
+
+.field-status {
+  min-height: 1.2em;
+  margin: 6px 0 0;
+  color: #56734e;
+  font-size: 0.82rem;
+}
+
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 220px;
+  max-height: 48vh;
+  overflow: auto;
+  margin: 20px 0 0;
+  padding: 4px 2px;
+  list-style: none;
+}
+
+.empty-history {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  color: #8994a4;
+  font-size: 0.92rem;
+}
+
+.message {
+  max-width: 88%;
+  border-radius: 12px;
+  padding: 12px 15px;
+  overflow-wrap: anywhere;
+}
+
+.message-user {
+  align-self: flex-end;
+  background: #eaf0f8;
+}
+
+.message-assistant {
+  align-self: flex-start;
+  background: #f2f4f7;
+}
+
+.message-role {
+  display: block;
+  margin-bottom: 5px;
+  color: #536780;
+  font-size: 0.78rem;
+}
+
+.message-content {
+  margin: 0;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.composer {
+  align-items: flex-end;
+}
+
+.composer textarea {
+  min-height: 56px;
+  max-height: 180px;
+}
+
+.app-status {
+  min-height: 1.4em;
+  margin: 12px 2px 0;
+  color: #657185;
+  font-size: 0.88rem;
+}
+
+.is-error {
+  color: #a53d3d;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 14px;
+  }
+
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .model-status {
+    justify-content: flex-start;
+  }
+
+  .panel {
+    padding: 17px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .composer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button-primary {
+    align-self: flex-end;
+  }
+}
